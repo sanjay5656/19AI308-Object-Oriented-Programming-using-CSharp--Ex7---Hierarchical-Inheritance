@@ -1,34 +1,40 @@
 using System;
-namespace Basic_Example
+namespace inheritance
 {
     class Program
     {
         static void Main(string[] args)
         {
-  
+            Scooter scooter = new Scooter();
+            Car car = new Car();
+            Console.WriteLine("Scooter started:");
+            scooter.display();
+            Console.WriteLine("\nCar started:");
+            car.display();
         }
     }
-    //Creating Base Class
-    class Tyre
+    public class Vehicle
     {
-        protected void TyreType()
+        public void tyre()
         {
-  
+            Console.WriteLine("It is a tubeless tyre");
         }
     }
-    //Creating Child Class
-    class Scooter : Tyre
+    class Scooter : Vehicle
     {
-        public void ScooterType()
+        public void display() 
         {
-          
+            base.tyre();
+            Console.WriteLine("It is a scooter class");
+        }
     }
-    //Creating Child Class
-    class Car : Tyre
+    class Car : Vehicle
     {
-        public void CarType()
+        public  void display() 
         {
-            
+            base.tyre();
+            Console.WriteLine("It is a car class");
         }
     }
 }
+
